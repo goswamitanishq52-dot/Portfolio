@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coffee Haven - A Cozy Coffee Shop</title>
+    <link rel="stylesheet" href="coffee-shop.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <h1>Welcome to Coffee Haven</h1>
+            <div class="header-controls">
+                <button id="dark-mode-toggle" class="icon-btn" title="Toggle Dark Mode">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <button id="search-toggle" class="icon-btn" title="Search Menu">
+                    <i class="fas fa-search"></i>
+                </button>
+                <button id="user-btn" class="icon-btn" title="User Account">
+                    <i class="fas fa-user"></i>
+                </button>
+                <button id="notifications-btn" class="icon-btn" title="Notifications">
+                    <i class="fas fa-bell"></i>
+                    <span id="notification-count" class="notification-badge">0</span>
+                </button>
+            </div>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#about">About</a></li>
+                <li><a href="#menu">Menu</a></li>
+                <li><a href="#reviews">Reviews</a></li>
+                <li><a href="#dashboard">Dashboard</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="#cart" id="cart-link">Cart (<span id="cart-count">0</span>)</a></li>
+            </ul>
+        </nav>
+        <div id="search-bar" class="search-bar hidden">
+            <input type="text" id="search-input" placeholder="Search menu items...">
+            <button id="search-close" class="icon-btn"><i class="fas fa-times"></i></button>
+        </div>
+    </header>
+
+    <main>
+        <section id="about">
+            <h2>About Us</h2>
+            <p>Coffee Haven is a cozy coffee shop located in the heart of the city. We serve the finest coffee, fresh pastries, and a warm atmosphere perfect for relaxation and conversation.</p>
+            <div class="stats">
+                <div class="stat">
+                    <i class="fas fa-coffee"></i>
+                    <span id="coffee-served">1000+</span>
+                    <p>Cups Served</p>
+                </div>
+                <div class="stat">
+                    <i class="fas fa-users"></i>
+                    <span id="happy-customers">10000+</span>
+                    <p>Happy Customers</p>
+                </div>
+                <div class="stat">
+                    <i class="fas fa-star"></i>
+                    <span id="avg-rating">4.7</span>
+                    <p>Average Rating</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="menu">
+            <h2>Our Menu</h2>
+            <div class="menu-controls">
+                <div class="menu-filters">
+                    <button class="filter-btn active" data-filter="all">All</button>
+                    <button class="filter-btn" data-filter="coffee">Coffee</button>
+                    <button class="filter-btn" data-filter="pastries">Pastries</button>
+                    <button class="filter-btn" data-filter="specials">Specials</button>
+                </div>
+                <div class="menu-sort">
+                    <select id="sort-select">
+                        <option value="name">Sort by Name</option>
+                        <option value="price-low">Price: Low to High</option>
+                        <option value="price-high">Price: High to Low</option>
+                        <option value="rating">Highest Rated</option>
+                    </select>
+                </div>
+            </div>
+            <div class="menu-items">
+                <div class="menu-item coffee" data-name="Espresso" data-price="3.00" data-rating="4.5" data-category="coffee">
+                    <div class="item-header">
+                        <h3>Espresso</h3>
+                        <div class="rating">
+                            <span class="stars">★★★★★</span>
+                            <span class="rating-value">4.5</span>
+                        </div>
+                    </div>
+                    <p>Rich and bold coffee shot</p>
+                    <div class="item-footer">
+                        <span class="price">$3.00</span>
+                        <div class="quantity-controls">
+                            <button class="qty-btn minus">-</button>
+                            <span class="quantity">1</span>
+                            <button class="qty-btn plus">+</button>
+                        </div>
+                        <button class="add-to-cart">Add to Cart</button>
+                        <button class="favorite-btn" title="Add to Favorites">
+                            <i class="far fa-heart"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="menu-item coffee" data-name="Cappuccino" data-price="4.50" data-rating="4.7" data-category="coffee">
+                    <div class="item-header">
+                        <h3>Cappuccino</h3>
+                        <div class="rating">
+                            <span class="stars">★★★★★</span>
+                            <span class="rating-value">4.7</span>
+                        </div>
+                    </div>
+                    <p>Espresso with steamed milk and foam</p>
+                    <div class="item-footer">
+                        <span class="price">$4.50</span>
+                        <div class="quantity-controls">
+                            <button class="qty-btn minus">-</button>
+                            <span class="quantity">1</span>
+                            <button class="qty-btn plus">+</button>
+                        </div>
+                        <button class="add-to-cart">Add to Cart</button>
+                        <button class="favorite-btn" title="Add to Favorites">
+                            <i class="far fa-heart"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="menu-item coffee" data-name="Latte" data-price="4.00" data-rating="4.3" data-category="coffee">
+                    <div class="item-header">
+                        <h3>Latte</h3>
+                        <div class="rating">
+                            <span class="stars">★★★★★</span>
+                            <span class="rating-value">4.3</span>
+                        </div>
+                    </div>
+                    <p>Espresso with steamed milk</p>
+                    <div class="item-footer">
+                        <span class="price">$4.00</span>
+                        <div class="quantity-controls">
+                            <button class="qty-btn minus">-</button>
+                            <span class="quantity">1</span>
+                            <button class="qty-btn plus">+</button>
+                        </div>
+                        <button class="add-to-cart">Add to Cart</button>
+                        <button class="favorite-btn" title="Add to Favorites">
+                            <i class="far fa-heart"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="menu-item pastries" data-name="Croissant" data-price="2.50" data-rating="4.2" data-category="pastries">
+                    <div class="item-header">
+                        <h3>Croissant</h3>
+                        <div class="rating">
+                            <span class="stars">★★★★★</span>
+                            <span class="rating-value">4.2</span>
+                        </div>
+                    </div>
+                    <p>Buttery, flaky pastry</p>
+                    <div class="item-footer">
+                        <span class="price">$2.50</span>
+                        <div class="quantity-controls">
+                            <button class="qty-btn minus">-</button>
+                            <span class="quantity">1</span>
+                            <button class="qty-btn plus">+</button>
+                        </div>
+                        <button class="add-to-cart">Add to Cart</button>
+                        <button class="favorite-btn" title="Add to Favorites">
+                            <i class="far fa-heart"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="menu-item pastries" data-name="Muffin" data-price="3.00" data-rating="4.4" data-category="pastries">
+                    <div class="item-header">
+                        <h3>Muffin</h3>
+                        <div class="rating">
+                            <span class="stars">★★★★★</span>
+                            <span class="rating-value">4.4</span>
+                        </div>
+                    </div>
+                    <p>Fresh baked blueberry muffin</p>
+                    <div class="item-footer">
+                        <span class="price">$3.00</span>
+                        <div class="quantity-controls">
+                            <button class="qty-btn minus">-</button>
+                            <span class="quantity">1</span>
+                            <button class="qty-btn plus">+</button>
+                        </div>
+                        <button class="add-to-cart">Add to Cart</button>
+                        <button class="favorite-btn" title="Add to Favorites">
+                            <i class="far fa-heart"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="menu-item specials" data-name="Seasonal Special" data-price="5.50" data-rating="4.8" data-category="specials">
+                    <div class="item-header">
+                        <h3>Seasonal Special</h3>
+                        <div class="rating">
+                            <span class="stars">★★★★★</span>
+                            <span class="rating-value">4.8</span>
+                        </div>
+                    </div>
+                    <p>Today's special coffee creation</p>
+                    <div class="item-footer">
+                        <span class="price">$5.50</span>
+                        <div class="quantity-controls">
+                            <button class="qty-btn minus">-</button>
+                            <span class="quantity">1</span>
+                            <button class="qty-btn plus">+</button>
+                        </div>
+                        <button class="add-to-cart">Add to Cart</button>
+                        <button class="favorite-btn" title="Add to Favorites">
+                            <i class="far fa-heart"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="reviews">
+            <h2>Customer Reviews</h2>
+            <div class="reviews-summary">
+                <div class="overall-rating">
+                    <h3>Overall Rating</h3>
+                    <div class="rating-display">
+                        <span class="stars large">★★★★★</span>
+                        <span id="overall-rating-value">4.5</span>
+                    </div>
+                    <p id="total-reviews">Based on 0 reviews</p>
+                </div>
+                <button id="add-review-btn" class="primary-btn">Write a Review</button>
+            </div>
+            <div id="reviews-list"></div>
+        </section>
+
+        <section id="dashboard" class="dashboard-section">
+            <h2>My Dashboard</h2>
+            <div id="dashboard-content">
+                <div class="login-prompt">
+                    <h3>Please log in to view your dashboard</h3>
+                    <button id="login-btn" class="primary-btn">Login</button>
+                    <button id="register-btn" class="secondary-btn">Register</button>
+                </div>
+            </div>
+        </section>
+
+        <section id="cart" class="cart-section">
+            <h2>Your Cart</h2>
+            <div id="cart-items"></div>
+            <div id="cart-total">Total: $0.00</div>
+            <div class="cart-actions">
+                <button id="clear-cart-btn" class="secondary-btn">Clear Cart</button>
+                <button id="checkout-btn" class="primary-btn">Checkout</button>
+            </div>
+        </section>
+
+        <section id="contact">
+            <h2>Contact Us</h2>
+            <div class="contact-content">
+                <form id="contact-form">
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name" required>
+
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+
+                    <label for="message">Message:</label>
+                    <textarea id="message" name="message" required></textarea>
+
+                    <button type="submit">Send Message</button>
+                </form>
+                <div id="contact-info">
+                    <h3>Get in Touch</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> 123 Main Street, City, State 12345</p>
+                    <p><i class="fas fa-phone"></i> (123) 456-7890</p>
+                    <p><i class="fas fa-envelope"></i> info@coffeehaven.com</p>
+                    <div class="newsletter">
+                        <h4>Subscribe to Newsletter</h4>
+                        <input type="email" id="newsletter-email" placeholder="Enter your email">
+                        <button id="newsletter-btn">Subscribe</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#menu">Menu</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Follow Us</h4>
+                <div class="social-links">
+                    <a href="#" class="social-link"><i class="fab fa-facebook"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h4>Business Hours</h4>
+                <p>Mon-Fri: 7AM - 8PM</p>
+                <p>Sat-Sun: 8AM - 9PM</p>
+            </div>
+        </div>
+        <p>&copy; 2026 Coffee Haven. All rights reserved.</p>
+    </footer>
+
+    <!-- Modals -->
+    <div id="auth-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div id="auth-content"></div>
+        </div>
+    </div>
+
+    <div id="review-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h3>Write a Review</h3>
+            <form id="review-form">
+                <label for="review-rating">Rating:</label>
+                <div class="rating-input">
+                    <input type="radio" id="star5" name="rating" value="5"><label for="star5">★</label>
+                    <input type="radio" id="star4" name="rating" value="4"><label for="star4">★</label>
+                    <input type="radio" id="star3" name="rating" value="3"><label for="star3">★</label>
+                    <input type="radio" id="star2" name="rating" value="2"><label for="star2">★</label>
+                    <input type="radio" id="star1" name="rating" value="1"><label for="star1">★</label>
+                </div>
+                <label for="review-text">Your Review:</label>
+                <textarea id="review-text" name="review" required></textarea>
+                <button type="submit">Submit Review</button>
+            </form>
+        </div>
+    </div>
+
+    <div id="notification-panel" class="notification-panel">
+        <h4>Notifications</h4>
+        <div id="notification-list"></div>
+    </div>
+
+    <script src="coffee-shop-new.js"></script>
+</body>
+</html>
